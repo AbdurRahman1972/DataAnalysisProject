@@ -1,11 +1,7 @@
 use Purchase
-
-
-
 SELECT * FROM ProductInventory 
 SELECT * FROM Location 
 SELECT * FROM product
-
 ----Current Inventory by product****
 SELECT Pi.ProductID,P.Name AS ProductName, SUM(Quantity) as CurrentStock FROM ProductInventory AS Pi
 JOIN Product AS P
@@ -22,4 +18,5 @@ Group BY Pi.LocationID
 SELECT C.LocationID, C.CurrentStock, L.Name From Cte_LStoct as C
 Join Location as L
 On C.LocationID = L.LocationID
+
 

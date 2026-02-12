@@ -17,18 +17,18 @@ Business Problem
 - Analyze supplier delivery performance
 - Provide SQL views for direct integration with Power BI dashboards
 
-Data Sources
+## Data Sources
 
 The following tables were extracted and recreated inside a new database Purchase:
-•	Production.Product
-•	Production.ProductSubcategory
-•	Production.ProductCategory
-•	Purchasing.PurchaseOrderHeader
-•	Purchasing.PurchaseOrderDetail
-•	Purchasing.Vendor
-•	Purchasing.ProductVendor
+- 	Production.Product
+- Production.ProductSubcategory
+- Production.ProductCategory
+- Purchasing.PurchaseOrderHeader
+- Purchasing.PurchaseOrderDetail
+- Purchasing.Vendor
+- Purchasing.ProductVendor
 
-Technologies Used
+## Technologies Used
 •	SQL Server (T-SQL)
 •	AdventureWorks Database
 •	Power BI Desktop
@@ -37,9 +37,9 @@ Technologies Used
 •	Data Warehousing Concepts
 
 
-Data Warehouse Design
+## Data Warehouse Design
 A Star Schema was designed for analytical reporting.
-Dimension Tables
+### Dimension Tables
 •	DimProduct
 •	DimProductSubcategory
 •	DimProductCategory
@@ -47,7 +47,7 @@ Dimension Tables
 •	DimLocation
 •	DimDate
 •	DimProductVendor
-Fact Tables
+### Fact Tables
 •	FactInventorySnapshot
 •	FactInventoryAging
 •	Fact30DaysRollingAverage
@@ -56,7 +56,6 @@ Fact Tables
 Inventory Aging was modeled as a periodic snapshot fact table connected to the Date dimension via SnapshotDate to enable time-based stock health analysis.
 
 Data Preparation & SQL Transformations
-
 
 Date Simulation
 To enable meaningful inventory aging analysis, purchase order dates were logically shifted forward by 11 years using DATEADD within analytical queries, preserving the original AdventureWorks data while simulating long-term stock behavior.

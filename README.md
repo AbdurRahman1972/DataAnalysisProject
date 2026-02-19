@@ -55,17 +55,16 @@ A Star Schema was designed for analytical reporting.
 •	FactPurchaseOrderDetail
 Inventory Aging was modeled as a periodic snapshot fact table connected to the Date dimension via SnapshotDate to enable time-based stock health analysis.
 
-Data Preparation & SQL Transformations
-
-Date Simulation
+## Data Preparation & SQL Transformations
+### Date Simulation
 To enable meaningful inventory aging analysis, purchase order dates were logically shifted forward by 11 years using DATEADD within analytical queries, preserving the original AdventureWorks data while simulating long-term stock behavior.
-Data Cleaning
+### Data Cleaning
 •	Uncategorized products were excluded from product-level segmentation.
 •	Missing values were handled using controlled joins and default records (e.g., Unknown Subcategory).
 •	Validation queries were created to check data integrity.
 
-Analytical SQL Views
-Key analytical views were created:
+## Analytical SQL Views
+### Key analytical views were created:
 •	vw_InventoryByCategory
 •	vw_InventoryAging
 •	vw_ProductDemandRolling30
@@ -73,52 +72,30 @@ Key analytical views were created:
 These views act as the data source for Power BI.
 
 
-Power BI Dashboard
-Page 1 — Inventory Overview
+# Power BI Dashboard
+ ## Page 1 — Inventory Overview
 •	KPI Cards (Total Product, Inventory Value, Quantity, Dead Stock %)
 •	Inventory by Category (Column Chart)
 •	Stock Status Distribution (Donut Chart)
 •	Stock Quantity<500 by Product Subcategory (Bar chart) 
-Page 2 — Inventory Aging Analysis
+## Page 2 — Inventory Aging Analysis
 KPI Cards(Average Days in Inventory, Dead stock product Count, Slow Moving Product Count , Risk Inventory %)
 •	Matrix Aging Stock Value > 90 days by product Category
 •	Dead / Slow / Active Stock Analysis (Pie Chart)
 •	Average Days Since Last Purchase
-Page 3 — Demand Trends
+## Page 3 — Demand Trends
 •	Rolling 30-Day Demand (Line Chart)
 •	Top Fast Movers
 •	Slow Moving Products
 •	Latest vs Average Demand KPIs
-Page 4 — Supplier Performance
+## Page 4 — Supplier Performance
 •	KPI Card (On-Time Delivery %, Order Frequency Rate, Rejection % , Average Lead Time
 •	Accepted and supplied quantity comparison (Stacked Area Chart interact with Slicer)
 •	Supplied and Rejection Quantity Comparison ( Line and Cluster Column Chart interact with slicer
 •	Rejection quantity by Vendor (Top ten)(Tree Map Chart)
 Stacked Area chart, Line and Cluster Column Chart filter with tree map)
 
- 
-Project Structure
-
-AdventureWorks-Inventory-Analytics
-│
-├── data/
-│   └── data.sql
-│
-├── sql/
-│   ├── create_tables.sql
-│   ├── create_views.sql
-│   ├── exploratory_queries.sql
-│   └── validation_checks.sql
-│
-├── powerbi/
-│   └── InventoryDashboard.pbix
-│
-└── README.md
-
-exploratory_queries.sql → analysis queries used during data exploration
-validation_checks.sql → data quality and integrity checks
-
-How to Run the Project
+# How to Run the Project
 1.	Restore or install AdventureWorks database in SQL Server
 2.	Create a new database: Purchase
 3.	Run data.sql to populate tables
@@ -127,7 +104,7 @@ How to Run the Project
 6.	Update SQL Server connection
 7.	Refresh data
 
-What This Project Demonstrates
+# What This Project Demonstrates
 8.	SQL data transformation and modeling
 9.	Data warehouse star schema design
 10.	Business KPI creation

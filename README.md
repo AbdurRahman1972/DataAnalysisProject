@@ -1,7 +1,4 @@
 # Inventory Management Project
-
-Inventory Management Project
-
 ## OVERVIEW
 
 This project demonstrates an end-to-end inventory analytics solution built using T-SQL (SQL Server) and Power BI.
